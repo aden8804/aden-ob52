@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ADEN KIPAS | DOWNLOAD KIPAS-PS</title>
+    <meta name="description" content="Download Kipas Private Server latest version v2.118.12. Unlock all premium items, unlimited currency, rank support, and custom features.">
+    <meta name="monetag" content="752ece0b56ace349f44e9ef4116114e3">
+    <meta name="keywords" content="kipas server, private server, unlimited money, mod menu">
+    <meta name="author" content="Kipas Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.denf9.my.id">
+    <!-- Open Graph & Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.denf9.my.id">
+    <meta property="og:title" content="Kipas Private Server - Download Ultimate MOD">
+    <meta property="og:description" content="Join Kipas Private Server now! Get unlimited resources, unlock all collectibles, and play competitive matches.">
+    <meta property="og:image" content="https://ffkipas.my.id/assets/images/ffkipas.png">
+    <meta name="google-adsense-account" content="ca-pub-8682328768305689">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kipas Private Server - Go Go Go!">
+    <meta name="twitter:description" content="Download the best Private Server. Unlimited resources and full access to all features.">
+    <meta name="twitter:image" content="https://ffkipas.my.id/assets/images/ffkipas.png">
+    <link rel="icon" type="image/png" href="image.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Telegram Widget Script -->
+    <script async src="https://telegram.org/js/telegram-widget.js?22"></script>
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        kps: {
+                            main: '#0f172a',
+                            panel: '#1e293b',
+                            border: '#334155',
+                            blue: '#191970',
+                            blueDark: '#0d0f4d',
+                            glow: 'rgba(25, 25, 112, 0.25)',
+                            gold: '#FFD700'
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-kps': 'linear-gradient(135deg, #3b3bff 0%, #191970 100%)',
+                        'gradient-text': 'linear-gradient(to right, #6366f1, #191970)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Styles -->
+    <style>
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
+                              linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+        .running-text {
+            background: rgba(25, 25, 112, 0.1);
+            padding: 8px 12px;
+            margin: 0.75rem auto;
+            border: 1px solid rgba(25, 25, 112, 0.3);
+            border-radius: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 0.75rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(25, 25, 112, 0.15);
+            max-width: 90%;
+        }
+        marquee {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background: #6366f1;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(25, 25, 112, 0.6);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #334155;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(25, 25, 112, 0.4);
+            transition: all 0.3s ease;
+        }
+        #music-toggle:hover {
+            background: rgba(25, 25, 112, 0.2);
+            transform: scale(1.1);
+        }
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            padding: 20px;
+        }
+        #mobile-menu.open {
+            transform: translateY(0);
+        }
+        #mobile-menu a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        #mobile-menu a:hover {
+            color: #6366f1;
+        }
+        #mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+        @keyframes countUp {
+            0% { transform: translateY(10px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .count-up {
+            animation: countUp 0.6s ease-out;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(100vh) translateX(60px) rotate(360deg); }
+        }
+        @keyframes zoomPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .logo-animate {
+            animation: zoomPulse 4s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+            50% { text-shadow: 0 0 30px rgba(255, 215, 0, 1); }
+            100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+        }
+        #countdown-timer .number {
+            animation: pulseGlow 1.5s ease-in-out infinite;
+        }
+        .menu-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(25, 25, 112, 0.5);
+            border-color: #6366f1;
+        }
+        .menu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: #6366f1;
+        }
+        .menu-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+        }
+        /* Overlay Iklan */
+        #ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 0.5s ease;
+        }
+        #ad-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .ad-container {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 50px rgba(25, 25, 112, 0.4);
+            position: relative;
+        }
+        .ad-header h2 {
+            color: #6366f1;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .ad-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .btn-primary {
+            flex: 1;
+            background: linear-gradient(135deg, #3b3bff 0%, #191970 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(25, 25, 112, 0.5);
+        }
+        .btn-secondary {
+            flex: 1;
+            background: #334155;
+            color: white;
+            border: 1px solid #475569;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+        .close-ad-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .close-ad-btn:hover {
+            color: #6366f1;
+        }
+        /* Responsive gambar di iklan */
+        #ad-overlay img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (min-width: 640px) { #ad-overlay img { max-width: 450px; } }
+        @media (min-width: 1024px) { #ad-overlay img { max-width: 550px; } }
+        /* Countdown Section - Ringkas Tanpa Label */
+        #countdown-section {
+            margin: 40px auto 30px auto;
+            max-width: 600px;
+        }
+        #countdown-timer {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #FFD700;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        #countdown-timer .title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        #countdown-timer .time-container {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        #countdown-timer .number {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFD700;
+            letter-spacing: 3px;
+        }
+        #countdown-timer .separator {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            align-self: flex-end;
+            margin-bottom: 8px;
+        }
+        #progress-container {
+            height: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 16px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+        #progress-bar {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            border-radius: 10px;
+            transition: width 0.8s ease;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+        #countdown-timer .finished {
+            font-size: 1.6rem;
+            color: #ff4444;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
+        }
+        @media (max-width: 640px) {
+            #countdown-section {
+                margin: 30px auto 20px auto;
+            }
+            #countdown-timer .number {
+                font-size: 1.8rem;
+            }
+            #countdown-timer .separator {
+                font-size: 1.6rem;
+            }
+            #countdown-timer .time-container {
+                gap: 12px;
+            }
+        }
+        /* Animasi heartbeat untuk tombol like */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+        /* Glow kuning untuk angka like */
+        @keyframes likeGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+            50% { text-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+        }
+        .like-count {
+            color: #FFD700 !important;
+            animation: likeGlow 2s ease-in-out infinite;
+            font-weight: bold;
+        }
+        /* Style saat tombol like sedang cooldown */
+        #like-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        #like-btn.disabled i,
+        #like-btn.disabled span {
+            color: #94a3b8 !important;
+        }
+    </style>
+</head>
+<body class="bg-kps-main text-slate-300 font-sans selection:bg-indigo-500 selection:text-white">
+    <!-- Overlay Iklan -->
+    <div id="ad-overlay">
+        <div class="ad-container">
+            <button class="close-ad-btn" id="close-ad-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="ad-header">
+                <h2>RADEN GAME SHOP</h2>
+                <p>Kamu cape Verif banyak iklan? Beli aja ke Admin. Murah kok 1HARI 1K</p>
+            </div>
+            <div class="mb-8">
+                <img src="verif.png" alt="FFKIPAS Logo" class="logo-animate" onerror="this.src='https://picsum.photos/800/400?random=2'">
+            </div>
+            <div class="ad-buttons">
+                <a href="https://t.me/aden499/25" target="_blank" class="btn-primary" id="visit-telegram-btn">
+                    <i class="fab fa-telegram-plane mr-2"></i>BELI VERIF KE ADMIN
+                </a>
+                <button class="btn-secondary" id="skip-ad-btn">
+                    <i class="fas fa-forward mr-2"></i>LEWATI IKLAN
+                </button>
+            </div>
+            <div class="ad-note">
+                *Iklan ini cuma Iklan awowowok
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 bg-grid -z-10 pointer-events-none opacity-30"></div>
+    <div id="particles-container"></div>
+
+    <!-- Audio -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="backsoud.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="click-sound" preload="auto">
+        <source src="https://dl.dir.freefiremobile.com/common/web_event/magicarrow/audios/FF_SFX_WebEvent_UI_Click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="beep-sound" preload="auto">
+        <source src="https://www.soundjay.com/buttons/beep-07.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="tick-sound" preload="auto">
+        <source src="https://cdn.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="final-beep-sound" preload="auto">
+        <source src="https://www.soundjay.com/buttons/sounds/beep-08b.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="music-toggle" title="Klik untuk mute/unmute musik">
+        <i id="music-icon" class="fas fa-volume-up text-white text-xl"></i>
+    </div>
+
+    <!-- Navbar dengan tombol Like (thumbs up + Like + angka kuning glow + delay 1 menit) -->
+    <nav class="fixed w-full z-50 top-0 bg-kps-main/90 backdrop-blur-md border-b border-kps-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <img src="image.png" alt="Server Logo" class="h-10 w-auto rounded" onerror="this.src='https://picsum.photos/100?random=1'">
+                    <span class="font-tech font-bold text-xl md:text-2xl tracking-widest text-white">
+                        ADEN <span class="text-transparent bg-clip-text bg-gradient-text">KIPAS</span>
+                    </span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <!-- Tombol Like -->
+                    <div class="flex items-center gap-3 bg-kps-panel/80 backdrop-blur px-5 py-2 rounded-full border border-kps-border/50">
+                        <button id="like-btn" class="text-white hover:text-blue-400 transition flex items-center gap-2">
+                            <i class="fas fa-thumbs-up text-lg"></i>
+                            <span class="font-bold text-sm like-text">Like</span>
+                            <span class="font-bold text-sm like-count ml-2">0</span>
+                        </button>
+                    </div>
+
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#home" class="text-slate-400 hover:text-indigo-400 text-sm font-semibold transition uppercase">Home</a>
+                        <a href="#features" class="text-slate-400 hover:text-indigo-400 text-sm font-semibold transition uppercase">Features</a>
+                        <div class="flex gap-4">
+                            <a href="https://ffkipas.my.id/verifyuid" class="border border-kps-border bg-kps-panel px-5 py-2 text-sm font-bold rounded hover:border-indigo-400 hover:text-indigo-400 transition">
+                                VERIFY ID
+                            </a>
+                            <a href="ffkipas.my.id" class="bg-white text-kps-main px-5 py-2 text-sm font-bold rounded hover:bg-indigo-500 hover:text-white transition">
+                                ADMIN
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-white hover:text-indigo-400">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu">
+        <div class="close-btn" id="mobile-menu-close"><i class="fas fa-times"></i></div>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="https://ffkipas.my.id/verifyuid">VERIFY ID</a>
+        <a href="login admin.html">ADMIN</a>
+    </div>
+
+    <header id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 text-center max-w-7xl mx-auto">
+        <!-- LOGO UTAMA -->
+        <div class="mb-12">
+            <img src="banner.png" alt="FFKIPAS Logo" class="mx-auto max-w-full h-auto w-96 md:w-auto md:max-w-2xl logo-animate" onerror="this.src='https://picsum.photos/800/400?random=2'">
+        </div>
+
+        <!-- Status, Tombol Download, Marquee -->
+        <div class="flex flex-col items-center gap-3">
+            <div class="w-full max-w-md mx-auto mb-1">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6">
+                    <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-kps-panel border border-kps-border w-full sm:w-auto justify-center">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-slate-300 tracking-wider">
+                            STATUS: <span class="text-emerald-400">ONLINE</span>
+                        </span>
+                    </div>
+                    <div class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-kps-panel border border-kps-border w-full sm:w-auto justify-center">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-slate-300 tracking-wider">
+                            BERHASIL DOWNLOAD: <span class="text-yellow-400 download-count font-bold">0</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Jalan pintas buat Download <strong>KIPAS PRIVATE SERVER</strong>. Semoga berguna hehe. Ayo Main dan JedagJedug! gunakan #ffkipas
+            </p>
+
+            <a id="download-btn" href="download.html" class="group relative bg-gradient-kps text-white px-12 py-5 rounded-xl font-bold text-xl hover:shadow-[0_0_40px_rgba(25,25,112,0.6)] transition-all flex items-center justify-center gap-3 shadow-2xl w-full max-w-lg mb-4">
+                <i class="fas fa-download text-2xl"></i>
+                <div class="text-left">
+                    <div>FFKIPAS OB 51</div>
+                    <div class="text-sm font-normal opacity-80">(458 MB.)</div>
+                </div>
+            </a>
+
+            <a href="https://ffkipas.my.id/verifyuid" class="group relative bg-gradient-kps text-white px-12 py-5 rounded-xl font-bold text-xl hover:shadow-[0_0_40px_rgba(25,25,112,0.6)] transition-all flex items-center justify-center gap-3 shadow-2xl w-full max-w-lg mb-4">
+                <i class="fa-solid fa-address-card"></i>
+                <div class="text-left">
+                    <div>VERIF MANUAL</div>
+                </div>
+            </a>
+
+            <a href="https://www.whatsapp.com/channel/0029VbBq3jp84OmDTxP2CT02" class="group relative bg-gradient-kps text-white px-12 py-5 rounded-xl font-bold text-xl hover:shadow-[0_0_40px_rgba(25,25,112,0.6)] transition-all flex items-center justify-center gap-3 shadow-2xl w-full max-w-lg mb-6">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <div class="text-left">
+                    <div>SALURAN ADEN</div>
+                </div>
+            </a>
+
+            <div class="running-text max-w-2xl">
+                <marquee behavior="scroll" direction="left" scrollamount="10">
+                    SEMUA SUDAH ADA PANDUAN TINGGAL KAMU IKUTI SAJA.
+                </marquee>
+            </div>
+        </div>
+    </header>
+
+    <!-- Script Utama -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adOverlay = document.getElementById('ad-overlay');
+            adOverlay.classList.remove('hidden');
+
+            function closeAd() {
+                adOverlay.classList.add('hidden');
+                playClickSound();
+            }
+
+            document.getElementById('close-ad-btn').addEventListener('click', closeAd);
+            document.getElementById('skip-ad-btn').addEventListener('click', closeAd);
+            document.getElementById('visit-telegram-btn').addEventListener('click', playClickSound);
+
+            // Audio countdown
+            const tickSound = document.getElementById('tick-sound');
+            const finalBeepSound = document.getElementById('final-beep-sound');
+            const beepSound = document.getElementById('beep-sound');
+
+            tickSound.volume = 0.4;
+            finalBeepSound.volume = 0.6;
+
+            let previousSeconds = -1;
+
+            // === COUNTDOWN RINGKAS TANPA LABEL ===
+            const countdownDate = new Date("2026-01-07 00:00:00").getTime();
+
+            const timerDisplay = document.getElementById('timer-display');
+            const progressBar = document.getElementById('progress-bar');
+
+            const totalDuration = countdownDate - new Date().getTime();
+
+            const updateTimer = () => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                if (distance < 0) {
+                    timerDisplay.innerHTML = '<div class="finished">EVENT SELESAI!</div>';
+                    progressBar.style.width = '0%';
+                    finalBeepSound.play().catch(() => {});
+                    beepSound.play().catch(() => {});
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (seconds !== previousSeconds) {
+                    tickSound.currentTime = 0;
+                    tickSound.play().catch(() => {});
+                    previousSeconds = seconds;
+                }
+
+                timerDisplay.innerHTML = `
+                    <div class="number">${days.toString().padStart(2, '0')}</div>
+                    <div class="separator">:</div>
+                    <div class="number">${hours.toString().padStart(2, '0')}</div>
+                    <div class="separator">:</div>
+                    <div class="number">${minutes.toString().padStart(2, '0')}</div>
+                    <div class="separator">:</div>
+                    <div class="number">${seconds.toString().padStart(2, '0')}</div>
+                `;
+
+                const percentage = (distance / totalDuration) * 100;
+                progressBar.style.width = percentage + '%';
+            };
+
+            updateTimer();
+            const timerInterval = setInterval(updateTimer, 1000);
+
+            // Fitur lain
+            const particlesContainer = document.getElementById('particles-container');
+            const bgMusic = document.getElementById('bg-music');
+            const musicToggle = document.getElementById('music-toggle');
+            const musicIcon = document.getElementById('music-icon');
+
+            function playClickSound() {
+                const clickAudio = document.getElementById('click-sound');
+                clickAudio.currentTime = 0;
+                clickAudio.play().catch(() => {});
+            }
+
+            bgMusic.volume = 0.3;
+            bgMusic.play().catch(() => {});
+
+            musicToggle.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicIcon.classList.replace('fa-volume-mute', 'fa-volume-up');
+                } else {
+                    bgMusic.pause();
+                    musicIcon.classList.replace('fa-volume-up', 'fa-volume-mute');
+                }
+            });
+
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                const size = Math.random() * 4 + 2;
+                p.style.width = p.style.height = `${size}px`;
+                p.style.left = `${Math.random() * 100}vw`;
+                const duration = Math.random() * 12 + 8;
+                p.style.animation = `fall ${duration}s linear infinite`;
+                p.style.animationDelay = `${Math.random() * 10}s`;
+                particlesContainer.appendChild(p);
+            }
+
+            document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('open');
+            });
+            document.getElementById('mobile-menu-close').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('click', playClickSound);
+            });
+        });
+    </script>
+
+    <!-- Firebase Counter (Download + Like) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAYQIPDIhvwhL3z8yuQcr32MDdqyUX1v1E",
+            authDomain: "aden-ob52.firebaseapp.com",
+            databaseURL: "https://aden-ob52-default-rtdb.firebaseio.com",
+            projectId: "aden-ob52",
+            storageBucket: "aden-ob52.appspot.com",
+            messagingSenderId: "962210534464",
+            appId: "1:962210534464:web:4a73e59ee3d07d1235bba5",
+            measurementId: "G-E523R4K2PZ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Download Counter
+        const downloadRef = ref(db, 'downloadCount');
+        onValue(downloadRef, (snap) => {
+            updateCount('.download-count', snap.val());
+        });
+
+        // Like Counter
+        const likeRef = ref(db, 'likeCount');
+        onValue(likeRef, (snap) => {
+            const count = snap.val() || 0;
+            document.querySelectorAll('.like-count').forEach(el => {
+                el.textContent = count.toLocaleString('id-ID');
+                el.classList.add('count-up');
+                setTimeout(() => el.classList.remove('count-up'), 600);
+            });
+        });
+
+        function updateCount(selector, value) {
+            const count = value || 0;
+            document.querySelectorAll(selector).forEach(el => {
+                el.textContent = count.toLocaleString('id-ID');
+                el.classList.add('count-up');
+                setTimeout(() => el.classList.remove('count-up'), 600);
+            });
+        }
+
+        // Record Download (tanpa batasan)
+        window.recordDownload = function() {
+            runTransaction(downloadRef, (current) => (current || 0) + 1);
+        };
+
+        // Tombol Like dengan delay 1 menit
+        const likeBtn = document.getElementById('like-btn');
+        const likeText = document.querySelector('.like-text');
+
+        document.getElementById('like-btn')?.addEventListener('click', () => {
+            // Cek apakah sedang cooldown
+            const lastLikeTime = localStorage.getItem('lastLikeTime');
+            const now = Date.now();
+
+            if (lastLikeTime && (now - parseInt(lastLikeTime) < 60000)) {
+                // Masih dalam cooldown
+                alert('Tunggu 1 menit sebelum like lagi ya bro ❤️');
+                return;
+            }
+
+            // Proses like
+            const clickAudio = document.getElementById('click-sound');
+            clickAudio.currentTime = 0;
+            clickAudio.play().catch(() => {});
+
+            runTransaction(likeRef, (current) => (current || 0) + 1);
+
+            // Simpan waktu like
+            localStorage.setItem('lastLikeTime', now.toString());
+
+            // Animasi heartbeat + warna biru
+            const thumbIcon = document.querySelector('#like-btn i');
+            thumbIcon.classList.add('text-blue-500');
+            thumbIcon.style.animation = 'heartbeat 0.6s ease-in-out';
+            setTimeout(() => {
+                thumbIcon.style.animation = '';
+                thumbIcon.classList.remove('text-blue-500');
+            }, 600);
+
+            // Aktifkan cooldown 60 detik
+            likeBtn.classList.add('disabled');
+            likeText.textContent = 'Tunggu...';
+
+            setTimeout(() => {
+                likeBtn.classList.remove('disabled');
+                likeText.textContent = 'Like';
+            }, 60000);
+        });
+
+        // Cek saat load halaman apakah masih cooldown
+        window.addEventListener('load', () => {
+            const lastLikeTime = localStorage.getItem('lastLikeTime');
+            const now = Date.now();
+            if (lastLikeTime && (now - parseInt(lastLikeTime) < 60000)) {
+                const remaining = 60000 - (now - parseInt(lastLikeTime));
+                likeBtn.classList.add('disabled');
+                likeText.textContent = 'Tunggu...';
+                setTimeout(() => {
+                    likeBtn.classList.remove('disabled');
+                    likeText.textContent = 'Like';
+                }, remaining);
+            }
+        });
+
+        // Trigger download count
+        document.getElementById('download-btn')?.addEventListener('click', () => {
+            if (typeof window.recordDownload === 'function') {
+                window.recordDownload();
+            }
+        });
+    </script>
+</body>
+</html>
